@@ -17,7 +17,7 @@ const AdminSideBar=()=>{
             </div>
            <div className="border-2 border-slate-200 bg-blue-200 text-blue-500 p-2 flex flex-row gap-2 rounded-sm font-semibold">
            <ShieldCogCorner/>
-           <h1>Role: DOCTOR</h1>
+           <h5>Role: DOCTOR</h5>
            
            </div>
            <div className="flex flex-col gap-2">
@@ -37,11 +37,11 @@ const AdminSideBar=()=>{
             </div>
         ))}
 
-         <div className="flex flex-row gap-2 p-2">
+         <div className="flex flex-row gap-2 p-2 cursor-pointer">
             <Image src="/doctor.webp" alt="Logo" width={50} height={50} className="rounded-full" />
             <div className="flex flex-col gap-1">
-                <h1 className="text-md text-green-800">Dr. John Doe</h1>
-                <h2 className="text-sm text-slate-500">Doctor</h2>
+                <h5 className="text-md text-green-800">Dr. John Doe</h5>
+                <h5 className="text-sm text-slate-500">Doctor</h5>
                 </div>
          </div>
         </div>

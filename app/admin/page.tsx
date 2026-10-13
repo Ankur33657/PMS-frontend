@@ -1,6 +1,11 @@
+import PatientRegistrySkelton from "@/components/skelton/PatientRegistrySkelton";
+import dynamic from "next/dynamic";
+const PatientRegistry=dynamic(()=>import("@/components/admin/patientRegistry"),{
+    loading:()=> <PatientRegistrySkelton/>
+})
 const HomePage=()=>{
     return (
-        <h1>Home Page</h1>
+       <PatientRegistry/>
     )
 }
 export default HomePage;
