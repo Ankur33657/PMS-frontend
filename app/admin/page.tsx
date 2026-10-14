@@ -5,7 +5,7 @@ const PatientRegistry=dynamic(()=>import("@/components/admin/patientRegistry"),{
 })
 const HomePage=()=>{
     return (
-       <PatientRegistry/>
+            <PatientRegistry/>
     )
 }
 export default HomePage;

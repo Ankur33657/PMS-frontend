@@ -1,6 +1,7 @@
+import InPatientWard from "@/components/admin/inpatientWard";
 const InpatientWardPage = () => {
     return(
-        <h1>Inpatient Ward Page</h1>
+       <InPatientWard/>
     )
 }
 export default InpatientWardPage;
