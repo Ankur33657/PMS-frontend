@@ -18,7 +18,7 @@ const SideBarTab = ({ CurrentTab, isSelected }: { CurrentTab: number, isSelected
     { id: 1, name: "Inpatient Wards", icon: Bed ,route:"/admin/inpatientwards"},
     { id: 2, name: "Appointments", icon: CalendarDays ,route:"/admin/appointments"},
     { id: 3, name: "Clinical Orders", icon: ClipboardPenLine ,route:"/admin/clinical-orders"},
-    { id: 4, name: "Triage Queue", icon: Siren ,route:"/admin/triage-queue"},
+    { id: 4, name: "Rules", icon: Siren ,route:"/admin/rules"},
     { id: 5, name: "Administration", icon: ShieldUser ,route:"/admin/administration"},
     { id: 6, name: "Audit Logs", icon: Metronome ,route:"/admin/audit-logs"},
     { id: 7, name: "System Settings", icon: Settings ,route:"/admin/settings"}

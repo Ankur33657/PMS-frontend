@@ -12,6 +12,7 @@ import InPatientWardFilter from "./utility/InPatientWardFilter"
 import RegistryFilter from "./utility/RegistryFilter"
 import PatientRegistryTable from "./utility/PatientRegistryTable"
 import InPatientWardStatCard from "./utility/InpatientWardStatCard"
+import InPatientDetailsCard from "./utility/InPatientDetailsCard"
 const InPatientWard = () => {
   return (
     <main className="min-h-screen w-full bg-slate-50/70 p-4 sm:p-6 lg:p-8">
@@ -116,7 +117,8 @@ const InPatientWard = () => {
           </div>
 
           <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm sm:p-4">
-            <PatientRegistryTable />
+            {/* <PatientRegistryTable /> */}
+          <InPatientDetailsCard/>
           </div>
         </section>
 

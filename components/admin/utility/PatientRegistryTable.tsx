@@ -1,6 +1,6 @@
 
 "use client"
-
+import { cn } from "@/lib/utils"
 import {
   Table,
   TableBody,
@@ -48,36 +48,24 @@ const PatientRegistryTable = () => {
       </div>
 
       {/* Scrollable table */}
+
       <Table
-        containerClassName="max-h-[600px]"
+        containerClassName="max-h-[600px] overflow-auto"
         className="min-w-[756px]"
       >
-        <TableHeader>
-          <TableRow className="border-b border-slate-200 bg-slate-50 hover:bg-slate-50">
-            <TableHead className="sticky top-0 z-20 h-12 bg-slate-50 px-5 text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Patient
-            </TableHead>
-            <TableHead className="sticky top-0 z-20 h-12 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Patient ID
-            </TableHead>
-            <TableHead className="sticky top-0 z-20 h-12 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Age / Gender
-            </TableHead>
-            <TableHead className="sticky top-0 z-20 h-12 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Status
-            </TableHead>
-            <TableHead className="sticky top-0 z-20 h-12 bg-slate-50 px-5 text-right text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Action
-            </TableHead>
+        <TableHeader className="sticky top-0 z-20 bg-slate-50">
+          <TableRow className="bg-slate-50 hover:bg-slate-50">
+            <TableHead className="px-5">Patient</TableHead>
+            <TableHead>Patient ID</TableHead>
+            <TableHead>Age / Gender</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="px-5 text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {patients.map((patient) => (
-            <TableRow
-              key={patient.id}
-              className="border-b border-slate-100 transition-colors hover:bg-blue-50/50"
-            >
+            <TableRow key={patient.id}>
               <TableCell className="px-5 py-4">
                 <div className="flex items-center gap-3">
                   <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">
@@ -102,7 +90,7 @@ const PatientRegistryTable = () => {
                 {patient.id}
               </TableCell>
 
-              <TableCell className="text-sm text-slate-600">
+              <TableCell className="whitespace-nowrap text-sm text-slate-600">
                 {patient.age} yrs
                 <span className="mx-1.5 text-slate-300">/</span>
                 {patient.gender}
@@ -110,7 +98,10 @@ const PatientRegistryTable = () => {
 
               <TableCell>
                 <span
-                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[patient.status]}`}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium",
+                    statusStyles[patient.status]
+                  )}
                 >
                   <span className="size-1.5 rounded-full bg-current" />
                   {patient.status}
@@ -128,11 +119,8 @@ const PatientRegistryTable = () => {
               </TableCell>
             </TableRow>
           ))}
-            {patients.map((patient) => (
-            <TableRow
-              key={patient.id}
-              className="border-b border-slate-100 transition-colors hover:bg-blue-50/50"
-            >
+           {patients.map((patient) => (
+            <TableRow key={patient.id}>
               <TableCell className="px-5 py-4">
                 <div className="flex items-center gap-3">
                   <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">
@@ -157,7 +145,7 @@ const PatientRegistryTable = () => {
                 {patient.id}
               </TableCell>
 
-              <TableCell className="text-sm text-slate-600">
+              <TableCell className="whitespace-nowrap text-sm text-slate-600">
                 {patient.age} yrs
                 <span className="mx-1.5 text-slate-300">/</span>
                 {patient.gender}
@@ -165,7 +153,65 @@ const PatientRegistryTable = () => {
 
               <TableCell>
                 <span
-                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[patient.status]}`}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium",
+                    statusStyles[patient.status]
+                  )}
+                >
+                  <span className="size-1.5 rounded-full bg-current" />
+                  {patient.status}
+                </span>
+              </TableCell>
+
+              <TableCell className="px-5 text-right">
+                <button
+                  type="button"
+                  onClick={() => console.log("View patient:", patient.id)}
+                  className="rounded-lg px-3 py-1.5 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-100"
+                >
+                  View details
+                </button>
+              </TableCell>
+            </TableRow>
+          ))}
+           {patients.map((patient) => (
+            <TableRow key={patient.id}>
+              <TableCell className="px-5 py-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">
+                    {patient.name
+                      .split(" ")
+                      .map((part) => part[0])
+                      .join("")}
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="font-medium text-slate-800">
+                      {patient.name}
+                    </p>
+                    <p className="max-w-[180px] truncate text-xs text-slate-500">
+                      {patient.email}
+                    </p>
+                  </div>
+                </div>
+              </TableCell>
+
+              <TableCell className="font-mono text-xs text-slate-600">
+                {patient.id}
+              </TableCell>
+
+              <TableCell className="whitespace-nowrap text-sm text-slate-600">
+                {patient.age} yrs
+                <span className="mx-1.5 text-slate-300">/</span>
+                {patient.gender}
+              </TableCell>
+
+              <TableCell>
+                <span
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium",
+                    statusStyles[patient.status]
+                  )}
                 >
                   <span className="size-1.5 rounded-full bg-current" />
                   {patient.status}
@@ -185,6 +231,7 @@ const PatientRegistryTable = () => {
           ))}
         </TableBody>
       </Table>
+
     </div>
   )
 }

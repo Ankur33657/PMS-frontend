@@ -1,6 +1,7 @@
+import AppointmentScheduler from "@/components/admin/utility/appointmentCard";
 const AppointmentsPage=()=>{
     return(
-        <div>Appointments</div>
+       <AppointmentScheduler/>
     )
 }
 export default AppointmentsPage;
