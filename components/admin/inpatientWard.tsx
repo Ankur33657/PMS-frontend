@@ -9,13 +9,14 @@ import {
   ChevronRight,
 } from "lucide-react"
 import InPatientWardFilter from "./utility/InPatientWardFilter"
-import RegistryFilter from "./utility/RegistryFilter"
-import PatientRegistryTable from "./utility/PatientRegistryTable"
+import RegistryFilter from "../patient-registry/utility/RegistryFilter"
+import PatientRegistryTable from "../patient-registry/utility/PatientRegistryTable"
+import PageHeaderRoute from "./utility/PageHeaderRoute"
 import InPatientWardStatCard from "./utility/InpatientWardStatCard"
 import InPatientDetailsCard from "./utility/InPatientDetailsCard"
 const InPatientWard = () => {
   return (
-    <main className="min-h-screen w-full bg-slate-50/70 p-4 sm:p-6 lg:p-8">
+    <main className="min-h-screen w-full bg-slate-50/70 p-4">
       <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-7">
 
         {/* Page header */}
@@ -25,25 +26,8 @@ const InPatientWard = () => {
               <Users className="size-6" />
             </div>
 
-            <div className="min-w-0 space-y-2">
-              {/* Breadcrumb */}
-              <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500">
-                <span>Dashboard</span>
-                <ChevronRight className="size-3.5" />
-                <span>Admin</span>
-                <ChevronRight className="size-3.5" />
-                <span className="text-blue-700">In-Patient-ward</span>
-              </div>
-
-              <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-               Inpatient Wards & Bed Board
-
-              </h1>
-
-              <p className="max-w-3xl text-sm leading-6 text-slate-500 sm:text-base">
-               Live census, bed allocation, acuity telemetry, and patient transfers across inpatient units.
-              </p>
-            </div>
+            <PageHeaderRoute currentRoute={"In-Patient-ward"} Heading={" Inpatient Wards & Bed Board"}
+              subHeading={" Live census, bed allocation, acuity telemetry, and patient transfers across inpatient units."} />
           </div>
 
           {/* Page actions */}
@@ -96,7 +80,7 @@ const InPatientWard = () => {
         {/* Statistics */}
         <InPatientWardStatCard />
 
-      
+
 
         {/* Search and filters */}
         <section className="min-w-0">
@@ -118,7 +102,7 @@ const InPatientWard = () => {
 
           <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm sm:p-4">
             {/* <PatientRegistryTable /> */}
-          <InPatientDetailsCard/>
+            <InPatientDetailsCard />
           </div>
         </section>
 

@@ -14,7 +14,7 @@ import {
 
 const AdminHeader = () => {
   return (
-    <header className="sticky top-0 z-40 flex min-h-16 w-full items-center justify-between gap-4 border-b border-slate-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-md sm:px-6">
+    <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between gap-4 border-b border-slate-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-md ">
 
       {/* Search and clinical context */}
       <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3 xl:flex-nowrap">
